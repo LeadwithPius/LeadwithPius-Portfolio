@@ -123,6 +123,23 @@ section h2 {
   font-size: 2rem;
 }
 
+/* name type animation */
+.typing-text {
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #fff;
+  animation: typing 3s steps(30, end) forwards, blink 0.7s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
 /* Projects */
 .project-grid {
   display: grid;
