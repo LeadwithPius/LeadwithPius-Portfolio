@@ -1,5 +1,5 @@
 import React from 'react';
-import profilePlaceholder from '../assets/profile-placeholder.jpg'; // optional placeholder path
+import profilePlaceholder from '../assets/DSC_1807(1).jpg'; // optional placeholder path
 
 export default function About() {
   return (
