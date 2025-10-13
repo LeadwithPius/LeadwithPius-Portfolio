@@ -1,6 +1,6 @@
 import { Renderer, Program, Mesh, Color, Triangle } from 'ogl';
 import { useEffect, useRef } from 'react';
-import './Aurora.css';
+import './aurora.css';
 
 const VERT = `#version 300 es
 in vec2 position;
