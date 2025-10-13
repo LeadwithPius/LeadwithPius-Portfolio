@@ -1,25 +1,30 @@
-# Final Project and Deployment
+This is a personal portfolio website for Bruce Pius, showcasing projects, skills, and contact information. Built with **React** and **Vite**, it is fully responsive for desktop and mobile devices.
 
-## Objectives
-Build a fully functional web application.
-Apply HTML, CSS, and JavaScript concepts learned.
-Deploy the project using GitHub Pages, Netlify, or Vercel.
+## Features
 
-## Instructions
-Choose one of the following project ideas:
-Blog Website: Implement a multi-page site with navigation.
-Ecommerce Website: Implement a multi-page site with navigation.
+- **Responsive Design**: Works across mobile, tablet, and desktop screens.
+- **Project Showcase**: Grid of projects with images and descriptions.
+- **Contact Section**: Email, phone, LinkedIn, and GitHub links.
+- **Contact Form**: Basic client-side contact form (can be extended to integrate EmailJS or serverless backend).
+- **Smooth Navigation**: Sticky navbar with responsive hamburger menu on smaller screens.
 
->[!NOTE]
-> - Include at least:
-> - A responsive design.
-> - JavaScript interactivity.
-> - A deployment link.
+## Tech Stack
 
-## Tasks
+- **React 18**
+- **Vite**
+- **CSS3** (with mobile-first responsive design)
+- **Font Awesome** (icons for social and contact links)
 
-Create a well-structured HTML5 document.
-Use at least 5 different HTML elements.
-Ensure semantic correctness.
+## Project Structure
 
-Good luck and happy coding! 🚀💻
+my-portfolio/
+│
+├─ public/ # Static assets (images, resume PDF)
+├─ src/
+│ ├─ components/ # React components (Navbar, Intro, About, Projects, ContactForm, Contacts, Footer)
+│ ├─ assets/ # Images and files (profile photo, project images, resume)
+│ ├─ App.jsx # Main App component
+│ ├─ main.jsx # React entry file
+│ ├─ style.css # Global styles and responsive CSS
+└─ index.html
+
