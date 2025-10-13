@@ -1,5 +1,5 @@
 import React from 'react';
-import Aurora from './Aurora';
+import Aurora from './aurora';
 
 export default function Intro() {
   return (
