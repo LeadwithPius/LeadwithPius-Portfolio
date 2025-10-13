@@ -19,9 +19,8 @@ This is a personal portfolio website for Bruce Pius, showcasing projects, skills
 
 my-portfolio/
 │
-├─ public/ # Static assets (images, resume PDF)
-├─ src/
-│ ├─ components/ # React components (Navbar, Intro, About, Projects, ContactForm, Contacts, Footer)
+├
+│# React components (Navbar, Intro, About, Projects, ContactForm, Contacts, Footer)
 │ ├─ assets/ # Images and files (profile photo, project images, resume)
 │ ├─ App.jsx # Main App component
 │ ├─ main.jsx # React entry file
