@@ -263,10 +263,57 @@ section h2 {
 /* Footer */
 footer {
   padding: 2rem 1rem;
-  text-align:center;
-  color:var(--muted);
+  text-align: center;
+  color: var(--muted);
+  /* Use flex to align items internally */
+  display: flex;
+  flex-direction: column; /* Start as column, then row in media query */
+  align-items: center;
+  gap: 1.5rem; /* Spacing between sections */
 }
 
+/* New: Styles for the main content wrapper */
+.footer-content {
+  display: flex;
+  flex-direction: column; /* Stack vertically on small screens */
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px; /* Optional: Control max width */
+}
+
+/* Styles for the Timezone Component */
+.timezone-container h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Arrange timezones horizontally for a compact footer look */
+.timezone-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on very small screens */
+  justify-content: center;
+  gap: 15px 25px; /* Vertical and horizontal gap */
+  font-size: 0.85rem;
+}
+
+/* Media Query: Desktop/Tablet Alignment */
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row; /* Align side-by-side on larger screens */
+    justify-content: space-between; /* Push items to the edges */
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .timezone-container {
+    /* If you want the timezones to take less space */
+    max-width: 450px; 
+  }
+}
 /* Responsive */
 @media (min-width: 640px) {
   .project-grid {
