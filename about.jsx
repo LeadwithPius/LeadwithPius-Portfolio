@@ -1,12 +1,10 @@
 import React from 'react';
-import profilePlaceholder from '../assets/DSC_1807(1).jpg'; // optional placeholder path
-
 export default function About() {
   return (
     <section id="about" className="about-section">
       <div className="about-container">
         <div className="about-photo">
-          <img src={profilePlaceholder} alt="Bruce Pius portrait" />
+          <img src= https://drive.google.com/file/d/1DfWyctOuVRn7uHsP8fpdgsjb9YYhB7DF/view?usp=drive_link alt="Bruce Pius portrait" />
         </div>
         <div className="about-text">
           <h2>About Me</h2>
