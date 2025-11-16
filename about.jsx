@@ -4,8 +4,10 @@ export default function About() {
     <section id="about" className="about-section">
       <div className="about-container">
         <div className="about-photo">
-          <img src= https://drive.google.com/uc?export=view&id=1DfWyctOuVRn7uHsP8fpdgsjb9YYhB7DF
- alt="Bruce Pius portrait" />
+         <img 
+  src="https://drive.google.com/uc?export=view&amp;id=1DfWyctOuVRn7uHsP8fpdgsjb9YYhB7DF"
+  alt="Bruce Pius portrait" 
+/>
         </div>
         <div className="about-text">
           <h2>About Me</h2>
