@@ -5,7 +5,7 @@ export default function About() {
       <div className="about-container">
         <div className="about-photo">
          <img 
-  src="dist/assets/DSC_1807(1)-DwlzkNvz.jpg"
+  src="assets/DSC_1807(1).jpg"
   alt="Bruce Pius portrait" 
 />
         </div>
