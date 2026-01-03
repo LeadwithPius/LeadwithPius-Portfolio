@@ -1,13 +1,11 @@
 import React from 'react';
+import profile from "../assets/DSC_1807(1).jpg";
 export default function About() {
   return (
     <section id="about" className="about-section">
       <div className="about-container">
         <div className="about-photo">
-         <img 
-  src="assets/DSC_1807(1).jpg"
-  alt="Bruce Pius portrait" 
-/>
+         <img src="{profile}" alt="Bruce Pius portrait" >
         </div>
         <div className="about-text">
           <h2>About Me</h2>
