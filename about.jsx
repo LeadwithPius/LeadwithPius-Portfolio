@@ -5,7 +5,7 @@ export default function About() {
       <div className="about-container">
         <div className="about-photo">
          <img 
-  src="https://drive.google.com/uc?export=view&amp;id=1DfWyctOuVRn7uHsP8fpdgsjb9YYhB7DF"
+  src=""
   alt="Bruce Pius portrait" 
 />
         </div>
