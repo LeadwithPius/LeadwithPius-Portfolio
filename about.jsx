@@ -1,5 +1,4 @@
 import React from 'react';
-import profile from "../assets/DSC_1807(1).jpg";
 export default function About() {
   return (
     <section id="about" className="about-section">
