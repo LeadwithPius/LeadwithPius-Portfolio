@@ -8,12 +8,10 @@ Place these files here so they are served at `/assets/`:
 
 **Project images** (used in the Projects section):
 
-- project-1.jpg
-- project-2.jpg
+- project-2.jpg – Matatu / Trip Tally
 - project-3.jpg – FarmNet (farmers’ digital platform)
-- project-4.jpg
-- project-5.jpg
-- project-6.jpg – Knight Runner (JavaFX game) screenshot
+- project-5.png – FLF 1.0 (Financial Literacy Forum poster)
+- project-6.png – Knight Runner (JavaFX game) screenshot
 
 **Resume:**
 

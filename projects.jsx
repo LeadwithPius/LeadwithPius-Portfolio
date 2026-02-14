@@ -2,12 +2,6 @@ import React from 'react';
 
 const PROJECTS = [
   {
-    title: 'Organisation website',
-    description: 'I designed a website for a charity organisation I am part of to help improve visibility and credibility.',
-    img: '/assets/project-1.jpg',
-    link: '' // Add live or repo URL when available
-  },
-  {
     title: 'Matatu fleet management system',
     description: 'A system to help track public service vehicles: mileage, income vs targets, and report issues.',
     img: '/assets/project-2.jpg',
@@ -20,21 +14,15 @@ const PROJECTS = [
     link: 'https://farmnet-two.vercel.app/'
   },
   {
-    title: 'IESC 8.0',
-    description: 'Headed the Marketing den and assisted the media den on event day.',
-    img: '/assets/project-4.jpg',
-    link: ''
-  },
-  {
     title: 'FLF 1.0',
-    description: 'Conceptualised the event and led media and marketing efforts.',
-    img: '/assets/project-5.jpg',
+    description: 'The first Financial Literacy Forum for Engineering students at the University of Nairobi. Conceptualised the event and led media and marketing efforts, promoting sound personal finance management among students.',
+    img: '/assets/project-5.png',
     link: ''
   },
   {
     title: 'Knight Runner',
     description: 'An endless runner game built with JavaFX. Control a knight avoiding obstacles and collecting totems; features progressive difficulty, scoring, and pause/restart. Built with a modular OOP structure (Knight, Obstacle, Totem, GameManager, CollisionDetector).',
-    img: '/assets/project-6.jpg',
+    img: '/assets/project-6.png',
     link: 'https://github.com/LeadwithPius/Game-dev'
   }
 ];
