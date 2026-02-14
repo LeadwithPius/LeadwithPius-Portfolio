@@ -199,10 +199,13 @@ section h2 {
   align-self:flex-start;
 }
 
-/* Contact Buttons */
-#contacts {
+/* Contact section (form + buttons) */
+#contact {
   background: #fbfcff;
   padding: 2rem 1rem;
+}
+#contact .contact-buttons {
+  margin-top: 1.5rem;
 }
 
 .contact-buttons {
@@ -237,11 +240,20 @@ section h2 {
   margin:0 auto;
 }
 
+#contact-form label {
+  font-weight: 600;
+  color: var(--text);
+}
 #contact-form input,
 #contact-form textarea {
   padding:0.85rem;
   border-radius:10px;
   border:1px solid #e6eefc;
+}
+.contact-note {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 /* About layout */

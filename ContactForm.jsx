@@ -21,16 +21,19 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact">
-      <h2>Contact</h2>
+    <>
       <form id="contact-form" onSubmit={handleSubmit}>
-        <input name="name" value={form.name} onChange={handleChange} placeholder="Your name" required />
-        <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="Your Email" required />
-        <textarea name="message" value={form.message} onChange={handleChange} placeholder="Your Message" required />
+        <label htmlFor="contact-name">Your name</label>
+        <input id="contact-name" name="name" value={form.name} onChange={handleChange} placeholder="Your name" required />
+        <label htmlFor="contact-email">Your email</label>
+        <input id="contact-email" name="email" type="email" value={form.email} onChange={handleChange} placeholder="Your email" required />
+        <label htmlFor="contact-message">Your message</label>
+        <textarea id="contact-message" name="message" value={form.message} onChange={handleChange} placeholder="Your message" required rows={5} />
         <button type="submit" className="btn">
           {status === 'sending' ? 'Sending...' : status === 'sent' ? 'Sent ✓' : 'Send Message'}
         </button>
       </form>
-    </section>
+      <p className="contact-note">Or reach me directly via the links below.</p>
+    </>
   );
 }

@@ -1,10 +1,17 @@
 import React from 'react';
+
+const PLACEHOLDER_AVATAR = 'https://placehold.co/400x400?text=BP';
+
 export default function About() {
   return (
     <section id="about" className="about-section">
       <div className="about-container">
         <div className="about-photo">
-         <img src ="/assets/bruce_portrait.jpg" alt="Bruce Pius portrait"/>
+          <img
+            src="/assets/portrait.png"
+            alt="Bruce Pius portrait"
+            onError={(e) => { e.target.onerror = null; e.target.src = PLACEHOLDER_AVATAR; }}
+          />
         </div>
         <div className="about-text">
           <h2>About Me</h2>

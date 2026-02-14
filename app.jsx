@@ -15,8 +15,11 @@ export default function App() {
         <Intro />
         <About />
         <Projects />
-        <ContactForm />
-        <Contacts />
+        <section id="contact">
+          <h2>Contact</h2>
+          <ContactForm />
+          <Contacts />
+        </section>
       </main>
       <Footer />
     </>

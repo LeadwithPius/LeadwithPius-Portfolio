@@ -14,7 +14,7 @@ export default function Intro() {
       <div className="intro-content">
         <h1 className="typing-text">Hello, I'm Bruce Pius</h1>
         <p className="subtext">Developer • Designer • Problem Solver</p>
-        <a href="#projects" className="intro-btn">View My Work</a>
+        <a href="#projects" className="intro-btn" aria-label="Scroll to projects section">View My Work</a>
       </div>
     </section>
   );
