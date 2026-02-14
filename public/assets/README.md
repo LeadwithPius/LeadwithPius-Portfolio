@@ -10,9 +10,10 @@ Place these files here so they are served at `/assets/`:
 
 - project-1.jpg
 - project-2.jpg
-- project-3.jpg
+- project-3.jpg – FarmNet (farmers’ digital platform)
 - project-4.jpg
 - project-5.jpg
+- project-6.jpg – Knight Runner (JavaFX game) screenshot
 
 **Resume:**
 
