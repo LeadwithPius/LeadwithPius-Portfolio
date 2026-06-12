@@ -10,7 +10,7 @@ Place these files here so they are served at `/assets/`:
 
 - project-2.jpg – Matatu / Trip Tally
 - project-3.jpg – FarmNet (farmers’ digital platform)
-- project-5.png – FLF 1.0 (Financial Literacy Forum poster)
+- flf-certificate.png – FLF 1.0 (Financial Literacy Forum certificate of appreciation)
 - project-6.png – Knight Runner (JavaFX game) screenshot
 
 **Resume:**

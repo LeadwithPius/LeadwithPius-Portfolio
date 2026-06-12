@@ -16,7 +16,7 @@ const PROJECTS = [
   {
     title: 'FLF 1.0',
     description: 'The first Financial Literacy Forum for Engineering students at the University of Nairobi. Conceptualised the event and led media and marketing efforts, promoting sound personal finance management among students.',
-    img: '/assets/project-5.png',
+    img: '/assets/flf-certificate.png',
     link: ''
   },
   {
