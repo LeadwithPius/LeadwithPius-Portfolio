@@ -12,8 +12,7 @@ export default function Footer() {
         
         {/* Copyright/Legal Info */}
         <div className="footer-info">
-          <p>&copy; 2025 Bruce Pius. All rights reserved.</p>
-          <p style={{fontSize: '0.8rem', marginTop: '0.5rem'}}>Built with React & Vite, Deployed on Netlify.</p>
+          <p>&copy; 2026 Bruce Pius. All rights reserved.</p>
         </div>
         
       </div>
