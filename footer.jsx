@@ -12,7 +12,8 @@ export default function Footer() {
         
         {/* Copyright/Legal Info */}
         <div className="footer-info">
-          <p>&copy; 2026 Bruce Pius. All rights reserved.</p>
+          <p>&copy; 2026 Bruce Pius.
+          Chill, it always gets better here</p>
         </div>
         
       </div>
