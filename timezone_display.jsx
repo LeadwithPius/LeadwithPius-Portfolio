@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 // Define the timezones and their display names
 const timezones = [
   { city: "Lusaka (CAT)", tz: "Africa/Lusaka" },
-  { city: "Nairobi (EAT)", tz: "Africa/Nairobi" }, // <-- Nairobi Added Here
+  { city: "Nairobi (EAT)", tz: "Africa/Nairobi" }, 
   { city: "London (GMT/BST)", tz: "Europe/London" },
   { city: "New York (EST/EDT)", tz: "America/New_York" },
 ];
