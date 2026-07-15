@@ -4,15 +4,14 @@ Place these files here so they are served at `/assets/`:
 
 **About section:**
 
-- portrait.jpg – Your profile photo for the About section. If missing, a placeholder is shown.
+- portrait.png – Your profile photo for the About section (already added). If missing, a placeholder is shown.
 
 **Project images** (used in the Projects section):
 
-- project-1.jpg
-- project-2.jpg
-- project-3.jpg
-- project-4.jpg
-- project-5.jpg
+- project-2.jpg – Matatu / Trip Tally
+- project-3.jpg – FarmNet (farmers’ digital platform)
+- flf-certificate.png – FLF 1.0 (Financial Literacy Forum certificate of appreciation)
+- project-6.png – Knight Runner (JavaFX game) screenshot
 
 **Resume:**
 
