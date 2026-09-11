@@ -1,4 +1,5 @@
 import React from 'react';
+import CarouselSlider from './CarouselSlider';
 
 const PROJECTS = [
   {
@@ -31,16 +32,7 @@ export default function Projects() {
   return (
     <section id="projects">
       <h2>Projects</h2>
-      <div className="project-grid">
-        {PROJECTS.map((p, i) => (
-          <article className="project-card" key={i}>
-            <img src={p.img} alt={p.title} />
-            <h3>{p.title}</h3>
-            <p>{p.description}</p>
-            {p.link ? <a href={p.link} className="btn" target="_blank" rel="noopener noreferrer">View Project</a> : null}
-          </article>
-        ))}
-      </div>
+      <CarouselSlider slides={PROJECTS} />
     </section>
   );
 }
