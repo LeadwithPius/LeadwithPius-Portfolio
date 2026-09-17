@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import CarouselSlider from './CarouselSlider';
 
 const PROJECTS = [
@@ -31,7 +32,14 @@ const PROJECTS = [
 export default function Projects() {
   return (
     <section id="projects">
-      <h2>Projects</h2>
+      <motion.h2
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.6 }}
+        transition={{ duration: 0.5 }}
+      >
+        Projects
+      </motion.h2>
       <CarouselSlider slides={PROJECTS} />
     </section>
   );

@@ -38,6 +38,16 @@ export default function CarouselSlider({ slides }) {
   const dragX = useMotionValue(0);
   const rotate = useTransform(dragX, [-200, 200], [-18, 18]);
 
+  // Cursor-tracked highlight: exposed as CSS custom properties so the glow
+  // in .carousel-card-inner::after can follow the pointer with pure CSS.
+  const handlePointerMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const mx = ((e.clientX - rect.left) / rect.width) * 100;
+    const my = ((e.clientY - rect.top) / rect.height) * 100;
+    e.currentTarget.style.setProperty('--mx', `${mx}%`);
+    e.currentTarget.style.setProperty('--my', `${my}%`);
+  };
+
   const paginate = (newDirection) => {
     setDirection(newDirection);
     setIndex((prev) => (prev + newDirection + slides.length) % slides.length);
@@ -70,10 +80,10 @@ export default function CarouselSlider({ slides }) {
             dragConstraints={{ left: 0, right: 0 }}
             style={{ rotate, x: dragX }}
             onDragEnd={handleDragEnd}
-            className="carousel-card"
+            className="carousel-card glass"
             aria-label={slide.title}
           >
-            <div className="carousel-card-inner">
+            <div className="carousel-card-inner" onPointerMove={handlePointerMove}>
               <img src={slide.img} alt={slide.title} draggable="false" />
               {slide.link ? (
                 <a

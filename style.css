@@ -1,13 +1,22 @@
 :root{
-  --bg: #ffffff;
-  --primary: #1425c0;
-  --accent: #007BFF;
-  --muted: #6b7280;
-  --card: #f5f7fb;
-  --glass: rgba(255,255,255,0.06);
-  --text: #111827;
+  /* Dark base — glass only reads as "glass" when there's something
+     colorful and blurred underneath it. */
+  --bg: #0a0a12;
+  --bg-elevated: #10101c;
+  --primary: #7c8cff;
+  --accent: #4fd1ff;
+  --muted: #9aa1b8;
+  --text: #f1f2f8;
+
+  /* Glass tokens, actually used this time. */
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-bg-strong: rgba(18, 18, 30, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --glass-blur: 18px;
+  --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+
   --max-width: 1100px;
-  --radius: 12px;
+  --radius: 20px;
   --container-padding: 1.25rem;
 }
 
@@ -20,6 +29,93 @@ body {
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* ---------------------------------------------------------------- */
+/* Ambient background blobs                                          */
+/* Fixed behind the entire page so every glass panel — navbar, cards, */
+/* form — has real color and light to blur, not just flat dark bg.    */
+/* ---------------------------------------------------------------- */
+.ambient-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ambient-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.55;
+  will-change: transform;
+}
+
+.ambient-blob-1 {
+  width: 42vw;
+  height: 42vw;
+  top: -10vw;
+  left: -8vw;
+  background: radial-gradient(circle, #3a29ff, transparent 70%);
+  animation: drift-1 22s ease-in-out infinite alternate;
+}
+
+.ambient-blob-2 {
+  width: 38vw;
+  height: 38vw;
+  top: 30vh;
+  right: -12vw;
+  background: radial-gradient(circle, #ff3fa4, transparent 70%);
+  animation: drift-2 26s ease-in-out infinite alternate;
+}
+
+.ambient-blob-3 {
+  width: 34vw;
+  height: 34vw;
+  bottom: -12vw;
+  left: 18vw;
+  background: radial-gradient(circle, #22d3ee, transparent 70%);
+  animation: drift-3 30s ease-in-out infinite alternate;
+}
+
+@keyframes drift-1 { to { transform: translate(6vw, 8vh) scale(1.1); } }
+@keyframes drift-2 { to { transform: translate(-5vw, -6vh) scale(0.95); } }
+@keyframes drift-3 { to { transform: translate(4vw, -5vh) scale(1.05); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-blob { animation: none; }
+}
+
+/* ---------------------------------------------------------------- */
+/* Reusable glass surface                                            */
+/* ---------------------------------------------------------------- */
+.glass {
+  position: relative;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+/* A brighter one-pixel lip on the top edge, like light catching glass. */
+.glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0) 40%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass { background: var(--glass-bg-strong); }
 }
 
 /* Navbar */
@@ -27,9 +123,19 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: linear-gradient(180deg, rgba(20,37,192,0.95), rgba(20,37,192,0.9));
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  padding: 0.85rem 1rem;
+  transition: background 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease, box-shadow 0.35s ease;
+}
+
+.navbar.is-scrolled {
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
   padding: 0.6rem 1rem;
-  box-shadow: 0 6px 18px rgba(20,37,192,0.08);
 }
 
 .nav-inner {
@@ -54,14 +160,15 @@ body {
 }
 
 .nav-links a {
-  color: #E9F0FF;
+  color: #E9EBFF;
   font-weight:600;
   padding: 0.45rem 0.6rem;
   border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .nav-links a:hover {
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.1);
   color: #fff;
 }
 
@@ -93,7 +200,7 @@ body {
   justify-content:center;
   padding: 3rem 1rem;
   overflow: hidden;
-  background: linear-gradient(to right, #e0eafc, #cfdef3); /* fallback */
+  background: var(--bg); /* aurora + ambient blobs supply the color */
 }
 
 .aurora-container {
@@ -111,9 +218,8 @@ body {
   text-align:center;
   color: #fff;
   max-width: 920px;
-  padding: 2rem;
-  border-radius: 14px;
-  backdrop-filter: blur(6px);
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius);
 }
 
 .typing-text {
@@ -133,20 +239,26 @@ body {
 
 .subtext {
   margin-top: 0.8rem;
-  color: rgba(255,255,255,0.95);
+  color: rgba(255,255,255,0.9);
   font-weight:600;
 }
 
 /* CTA */
 .intro-btn {
   display:inline-block;
-  margin-top:1.2rem;
-  background: var(--accent);
-  color:#fff;
-  padding:0.6rem 1.05rem;
-  border-radius: 10px;
+  margin-top:1.4rem;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color:#0a0a12;
+  padding:0.7rem 1.3rem;
+  border-radius: 12px;
   font-weight:700;
-  box-shadow: 0 8px 24px rgba(0,123,255,0.14);
+  box-shadow: 0 8px 28px rgba(124,140,255,0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.intro-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(124,140,255,0.45);
 }
 
 /* Sections base */
@@ -154,12 +266,14 @@ section {
   padding: 3.5rem 1rem;
   max-width: var(--max-width);
   margin: 0 auto;
+  position: relative;
 }
 
 section h2 {
   text-align:center;
   font-size: clamp(1.4rem, 2.2vw, 2rem);
   margin-bottom: 1.4rem;
+  color: #fff;
 }
 
 #projects {
@@ -188,11 +302,8 @@ section h2 {
 .carousel-card {
   position: absolute;
   inset: 0;
-  background: #fdfdfd;
   border-radius: 40px;
   padding: 8px;
-  box-shadow: 0 12px 32px rgba(16, 24, 40, 0.12);
-  border: 1.2px solid #e6e6ea;
   overflow: hidden;
   cursor: grab;
   touch-action: pan-y;
@@ -207,10 +318,32 @@ section h2 {
   height: 100%;
   border-radius: 32px;
   overflow: hidden;
-  background: #f3f4f6;
+  background: var(--bg-elevated);
   position: relative;
   display: flex;
   flex-direction: column;
+  isolation: isolate;
+}
+
+/* Cursor-tracked highlight, positioned via --mx/--my set from JS on
+   pointermove. Sits above the image, below the text body. */
+.carousel-card-inner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(
+    260px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255,255,255,0.16),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.carousel-card-inner:hover::after {
+  opacity: 1;
 }
 
 .carousel-card-inner img {
@@ -227,34 +360,44 @@ section h2 {
   right: 14px;
   width: 40px;
   height: 40px;
-  background: rgba(237, 237, 237, 0.95);
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 16px rgba(16, 24, 40, 0.12);
-  color: var(--primary);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  color: #fff;
   text-decoration: none;
+  z-index: 2;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .carousel-link-btn:hover {
-  background: #fff;
-  color: var(--accent);
+  background: var(--primary);
+  transform: scale(1.06);
 }
 
 .carousel-card-body {
   flex: 1;
   padding: 0.9rem 1rem 1rem;
-  background: #fff;
+  /* Deliberately NOT blurred/translucent — body text needs solid
+     contrast even though the card frame around it is glass. */
+  background: var(--glass-bg-strong);
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
   overflow: hidden;
+  position: relative;
+  z-index: 2;
 }
 
 .carousel-card-body h3 {
   font-size: 1.05rem;
   line-height: 1.3;
+  color: #fff;
 }
 
 .carousel-card-body p {
@@ -271,12 +414,12 @@ section h2 {
   z-index: -1;
   width: 95%;
   height: 95%;
-  background: #fff;
+  background: var(--glass-bg);
   border-radius: 40px;
-  border: 6px solid #fff;
+  border: 6px solid rgba(255,255,255,0.06);
   transform: scale(0.95);
-  opacity: 0.5;
-  box-shadow: 0 10px 28px rgba(20, 37, 192, 0.08);
+  opacity: 0.6;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.3);
 }
 
 .carousel-dots {
@@ -293,7 +436,7 @@ section h2 {
   padding: 0;
   border: none;
   border-radius: 50%;
-  background: #c7d2fe;
+  background: rgba(255,255,255,0.25);
   cursor: pointer;
 }
 
@@ -304,18 +447,24 @@ section h2 {
 /* Buttons */
 .btn {
   display:inline-block;
-  background: var(--primary);
-  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #0a0a12;
   padding: 0.55rem 0.9rem;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight:700;
   text-decoration:none;
   align-self:flex-start;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(124,140,255,0.35);
 }
 
 /* Contact section (form + buttons) */
 #contact {
-  background: #fbfcff;
   padding: 2rem 1rem 3rem;
   overflow: visible;
 }
@@ -341,17 +490,14 @@ section h2 {
   position: relative;
   z-index: 1;
   width: 100%;
-  background: #fdfdfd;
   border-radius: 40px;
   padding: 8px;
-  box-shadow: 0 12px 32px rgba(16, 24, 40, 0.12);
-  border: 1.2px solid #e6e6ea;
 }
 
 .contact-card-inner {
   border-radius: 32px;
   overflow: hidden;
-  background: #fff;
+  background: var(--glass-bg-strong);
 }
 
 .contact-card-body {
@@ -367,11 +513,12 @@ section h2 {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--primary);
+  color: var(--accent);
 }
 
 .contact-card-body h3 {
   font-size: 1.25rem;
+  color: #fff;
 }
 
 .contact-lead {
@@ -390,17 +537,42 @@ section h2 {
 #contact-form textarea {
   padding: 0.75rem 0.85rem;
   border-radius: 14px;
-  border: 1px solid #e6eefc;
-  background: #f8fafc;
+  border: 1px solid var(--glass-border);
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
   font: inherit;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+  color: rgba(241,242,248,0.4);
 }
 
 #contact-form input:focus,
 #contact-form textarea:focus {
-  outline: 2px solid rgba(20, 37, 192, 0.25);
+  outline: 2px solid rgba(124,140,255,0.35);
   border-color: var(--primary);
-  background: #fff;
+  background: rgba(255,255,255,0.08);
 }
+
+/* Honeypot field — present for bots, invisible and unreachable for
+   real visitors and screen readers/keyboard nav. */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.contact-status {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.contact-status-sent { color: #6ee7b7; }
+.contact-status-error { color: #fca5a5; }
 
 .contact-submit {
   display: inline-flex;
@@ -424,12 +596,12 @@ section h2 {
   z-index: 0;
   width: 95%;
   height: 95%;
-  background: #fff;
+  background: var(--glass-bg);
   border-radius: 40px;
-  border: 6px solid #fff;
+  border: 6px solid rgba(255,255,255,0.06);
   transform: scale(0.95);
-  opacity: 0.5;
-  box-shadow: 0 10px 28px rgba(20, 37, 192, 0.08);
+  opacity: 0.6;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.3);
 }
 
 .contact-buttons {
@@ -447,24 +619,30 @@ section h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ededed;
-  color: #2b2b2b;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
   text-decoration: none;
-  box-shadow: 0 6px 16px rgba(16, 24, 40, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  border: 1px solid var(--glass-border);
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .contact-icon-btn:hover {
   background: var(--primary);
-  color: #fff;
+  color: #0a0a12;
+  transform: translateY(-2px);
 }
 
 /* About layout */
 .about-container {
   display:flex;
   flex-direction:column;
-  gap:1rem;
+  gap:1.5rem;
   align-items:center;
+  padding: 2rem;
+  border-radius: var(--radius);
 }
 
 .about-photo img {
@@ -472,63 +650,64 @@ section h2 {
   height:180px;
   border-radius:50%;
   object-fit:cover;
-  box-shadow: 0 8px 24px rgba(16,24,40,0.08);
+  border: 3px solid var(--glass-border);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.4);
 }
+
+.about-text h2 { color: #fff; }
+.about-text p { color: var(--muted); }
 
 /* Footer */
 footer {
   padding: 2rem 1rem;
   text-align: center;
   color: var(--muted);
-  /* Use flex to align items internally */
   display: flex;
-  flex-direction: column; /* Start as column, then row in media query */
+  flex-direction: column;
   align-items: center;
-  gap: 1.5rem; /* Spacing between sections */
+  gap: 1.5rem;
+  border-top: 1px solid var(--glass-border);
 }
 
-/* New: Styles for the main content wrapper */
 .footer-content {
   display: flex;
-  flex-direction: column; /* Stack vertically on small screens */
+  flex-direction: column;
   gap: 1.5rem;
   width: 100%;
-  max-width: 1200px; /* Optional: Control max width */
+  max-width: 1200px;
 }
 
-/* Styles for the Timezone Component */
 .timezone-container h3 {
   margin-bottom: 0.5rem;
   font-size: 1rem;
   font-weight: 600;
+  color: var(--text);
 }
 
-/* Arrange timezones horizontally for a compact footer look */
 .timezone-container ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
   display: flex;
-  flex-wrap: wrap; /* Allow wrapping on very small screens */
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 15px 25px; /* Vertical and horizontal gap */
+  gap: 15px 25px;
   font-size: 0.85rem;
 }
 
-/* Media Query: Desktop/Tablet Alignment */
 @media (min-width: 768px) {
   .footer-content {
-    flex-direction: row; /* Align side-by-side on larger screens */
-    justify-content: space-between; /* Push items to the edges */
+    flex-direction: row;
+    justify-content: space-between;
     align-items: flex-start;
     text-align: left;
   }
 
   .timezone-container {
-    /* If you want the timezones to take less space */
-    max-width: 450px; 
+    max-width: 450px;
   }
 }
+
 /* Responsive */
 @media (min-width: 640px) {
   .carousel-stage,
@@ -558,11 +737,24 @@ footer {
     right: 1rem;
     top: 68px;
     flex-direction: column;
-    background: rgba(20,37,192,0.96);
+    background: var(--glass-bg-strong);
+    backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+    border: 1px solid var(--glass-border);
     padding: 0.6rem;
-    border-radius: 10px;
+    border-radius: 14px;
     display: none;
   }
   .nav-links.open { display:flex; }
   .nav-links a { color: #fff; padding: 0.6rem 0.8rem; display:block; }
+}
+
+/* Respect reduced-motion preferences globally */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

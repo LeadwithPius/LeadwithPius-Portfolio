@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const handleLink = () => {
     setOpen(false);
   };
 
   return (
-    <header className="navbar">
+    <header className={`navbar${scrolled ? ' is-scrolled' : ''}`}>
       <div className="nav-inner">
         <div className="logo">BRUCE PIUS</div>
         <nav className={`nav-links ${open ? 'open' : ''}`}>

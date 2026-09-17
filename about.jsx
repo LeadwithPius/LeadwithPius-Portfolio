@@ -1,11 +1,18 @@
 import React from 'react';
+import { motion } from 'motion/react';
 
 const PLACEHOLDER_AVATAR = 'https://placehold.co/400x400?text=BP';
 
 export default function About() {
   return (
     <section id="about" className="about-section">
-      <div className="about-container">
+      <motion.div
+        className="about-container glass"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+      >
         <div className="about-photo">
           <img
             src="/assets/portrait.png"
@@ -21,7 +28,7 @@ export default function About() {
             through videography and editing — I bring ideas to life across mediums.
           </p>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
