@@ -23,9 +23,8 @@ export default function About() {
         <div className="about-text">
           <h2>About Me</h2>
           <p>
-            I tend to think of myself as a creative swiss knife — versatile, sharp and ready for anything.
-            From organizing impactful events to designing logos, posters, websites, and capturing stories
-            through videography and editing — I bring ideas to life across mediums.
+           edicated Computer Science professional combining technical expertise in full-stack web development with a strong background in customer service and digital content management. Adept at diagnosing technical issues, managing database structures, and streamlining user experiences.
+            Demonstrated leadership capabilities and a commitment to excellence through organizing impactful industry engagement initiatives.
           </p>
         </div>
       </motion.div>
