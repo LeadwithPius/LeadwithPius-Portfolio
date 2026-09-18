@@ -23,7 +23,7 @@ export default function Navbar() {
           <a href="#about" onClick={handleLink}>About</a>
           <a href="#projects" onClick={handleLink}>Projects</a>
           <a href="#contact" onClick={handleLink}>Contact</a>
-          <a href="/assets/Bruce-Pius-Resume.pdf" download>Resume</a>
+          <a href="/public/assets/Bruce Resume updated.pdf" download>Resume</a>
         </nav>
         <button
           type="button"
