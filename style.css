@@ -657,6 +657,47 @@ section h2 {
 .about-text h2 { color: #fff; }
 .about-text p { color: var(--muted); }
 
+/* Skills section */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skill-card {
+  height: 150px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.skill-card img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+}
+
+.skill-card p {
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-card { transition: none; }
+  .skill-card:hover { transform: none; }
+}
+
 /* Footer */
 footer {
   padding: 2rem 1rem;

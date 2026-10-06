@@ -1,6 +1,5 @@
 import React from 'react';
-// Changed the import path to match your file name: timezone_display.jsx
-import TimezoneDisplay from './timezone_display'; 
+import TimezoneDisplay from './timezone_display.jsx'; 
 
 export default function Footer() {
   return (
