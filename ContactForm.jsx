@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 
-// Encodes a plain object as an application/x-www-form-urlencoded string,
-// which is what Netlify's form-handling endpoint expects.
+
 function encode(data) {
   return Object.keys(data)
     .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
@@ -21,7 +20,7 @@ export default function ContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Honeypot: bots fill every field, humans never see this one.
+  
     if (e.target['bot-field'] && e.target['bot-field'].value) {
       return;
     }
