@@ -1,8 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
 
-// Technologies taken from the resume header:
-// MySQL | PostgreSql | MongoDB | Java | NodeJs | React | TailwindCSS
 const icon = (name) =>
   `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${name}/${name}-original.svg`;
 
@@ -25,7 +23,7 @@ export default function Skills() {
         viewport={{ once: true, amount: 0.6 }}
         transition={{ duration: 0.5 }}
       >
-        My Professional Skills
+        My Tech stack
       </motion.h2>
 
       <motion.div
