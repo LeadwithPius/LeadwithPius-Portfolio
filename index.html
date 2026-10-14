@@ -3,27 +3,96 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bruce Pius | Portfolio</title>
-    <meta name="description" content="Bruce Pius — Developer, designer & problem solver. Events, design, web, and videography." />
+
+    <!-- SEO core -->
+    <title>Bruce Pius | Web Developer, Designer &amp; Videographer</title>
+    <meta name="description" content="Bruce Pius is a web developer, designer and videographer. Explore his portfolio of websites, design, event coverage and video production, and get in touch to start a project." />
+    <meta name="author" content="Bruce Pius" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://leadwithpius.netlify.app/" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
+    <meta name="theme-color" content="#0a0a12" />
+    <!-- TODO: paste your Google Search Console verification tag here, e.g.
+         <meta name="google-site-verification" content="XXXX" /> -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <meta property="og:title" content="Bruce Pius | Portfolio" />
-    <meta property="og:description" content="Developer, designer & problem solver. Events, design, web, and videography." />
+
+    <!-- Open Graph (image URLs must be absolute) -->
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/assets/og-image.jpg" />
+    <meta property="og:site_name" content="Bruce Pius" />
+    <meta property="og:url" content="https://leadwithpius.netlify.app/" />
+    <meta property="og:title" content="Bruce Pius | Web Developer, Designer &amp; Videographer" />
+    <meta property="og:description" content="Portfolio of Bruce Pius: web development, design, events and videography." />
+    <meta property="og:image" content="https://leadwithpius.netlify.app/assets/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Bruce Pius portfolio" />
+
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Bruce Pius | Portfolio" />
-    <meta name="twitter:description" content="Developer, designer & problem solver. Events, design, web, and videography." />
-    <meta name="twitter:image" content="/assets/og-image.jpg" />
-    <meta name="theme-color" content="#0a0a12" />
+    <meta name="twitter:title" content="Bruce Pius | Web Developer, Designer &amp; Videographer" />
+    <meta name="twitter:description" content="Portfolio of Bruce Pius: web development, design, events and videography." />
+    <meta name="twitter:image" content="https://leadwithpius.netlify.app/assets/og-image.jpg" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://leadwithpius.netlify.app/#person",
+          "name": "Bruce Pius",
+          "url": "https://leadwithpius.netlify.app/",
+          "image": "https://leadwithpius.netlify.app/assets/og-image.jpg",
+          "description": "Computer Science professional, full-stack web developer, designer and videographer.",
+          "jobTitle": "Web Developer & Designer",
+          "knowsAbout": ["Web development", "Graphic design", "Videography", "Event production"],
+          "sameAs": [
+            "https://github.com/LeadwithPius"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://leadwithpius.netlify.app/#website",
+          "url": "https://leadwithpius.netlify.app/",
+          "name": "Bruce Pius",
+          "alternateName": "Lead With Pius",
+          "publisher": { "@id": "https://leadwithpius.netlify.app/#person" }
+        }
+      ]
+    }
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   </head>
   <body>
-    <div id="root"></div>
+    <!--
+      Crawler-readable fallback. React replaces everything inside #root the
+      moment it mounts, so visitors never see this; search engines and social
+      bots that don't run JS do. Keep it in sync with your real hero/about text.
+    -->
+    <div id="root">
+      <main style="font-family:Inter,system-ui,sans-serif;background:#0a0a12;color:#fff;min-height:100vh;padding:48px 24px">
+        <h1>Bruce Pius — Web Developer, Designer &amp; Videographer</h1>
+        <p>Bruce Pius is a Computer Science professional combining technical expertise in full-stack web development with a strong background in customer service and digital content management. He diagnoses technical issues, manages database structures, and streamlines user experiences.</p>
+        <p>His work spans web development, design, event production and videography, and he has led impactful industry engagement initiatives.</p>
+        <p>GitHub: <a href="https://github.com/LeadwithPius">github.com/LeadwithPius</a></p>
+        <h2>Services</h2>
+        <ul>
+          <li>Web development</li>
+          <li>Design</li>
+          <li>Events</li>
+          <li>Videography</li>
+        </ul>
+        <p>Use the contact form on this page to get in touch with Bruce Pius about a project.</p>
+      </main>
+    </div>
+    <noscript>
+      <p>Bruce Pius: web developer, designer and videographer. Please enable JavaScript to view the full portfolio.</p>
+    </noscript>
     <script type="module" src="/main.jsx"></script>
 
     <!--
