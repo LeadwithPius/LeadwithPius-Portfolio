@@ -84,7 +84,7 @@ export default function CarouselSlider({ slides }) {
             aria-label={slide.title}
           >
             <div className="carousel-card-inner" onPointerMove={handlePointerMove}>
-              <img src={slide.img} alt={slide.title} draggable="false" />
+              <img src={slide.img} alt={`${slide.title} project screenshot by Bruce Pius`} draggable="false" />
               {slide.link ? (
                 <a
                   href={slide.link}
