@@ -1,29 +1,62 @@
-This is a personal portfolio website for Bruce Pius, showcasing projects, skills, and contact information. Built with **React** and **Vite**, it is fully responsive for desktop and mobile devices.
+# Bruce Pius | Portfolio
+
+Personal portfolio of Bruce Pius: web developer, designer and videographer.
+
+**Live site:** https://leadwithpius.netlify.app/
+
+Built with React 18 and Vite, with animated backgrounds (OGL) and motion effects. Fully responsive, with a contact form handled by Netlify Forms.
 
 ## Features
 
-- **Responsive Design**: Works across mobile, tablet, and desktop screens.
-- **Project Showcase**: Grid of projects with images and descriptions.
-- **Contact Section**: Email, phone, LinkedIn, and GitHub links.
-- **Contact Form**: Basic client-side contact form (can be extended to integrate EmailJS or serverless backend).
-- **Smooth Navigation**: Sticky navbar with responsive hamburger menu on smaller screens.
+- Responsive layout for mobile, tablet and desktop
+- Project showcase carousel
+- Skills, About and Contact sections
+- Netlify Forms contact form with honeypot spam protection
+- SEO: meta tags, Open Graph / Twitter cards, JSON-LD, `sitemap.xml`, `robots.txt`
 
-## Tech Stack
+## Tech stack
 
-- **React 18**
-- **Vite**
-- **CSS3** (with mobile-first responsive design)
-- **Font Awesome** (icons for social and contact links)
+React 18 · Vite · motion · OGL · CSS3 · Netlify
 
-## Project Structure
+## Getting started
 
-my-portfolio/
-│
-├
-│# React components (Navbar, Intro, About, Projects, ContactForm, Contacts, Footer)
-│ ├─ assets/ # Images and files (profile photo, project images, resume)
-│ ├─ App.jsx # Main App component
-│ ├─ main.jsx # React entry file
-│ ├─ style.css # Global styles and responsive CSS
-└─ index.html
+```bash
+git clone https://github.com/LeadwithPius/LeadwithPius-Portfolio.git
+cd LeadwithPius-Portfolio
+npm install
+npm run dev        # http://localhost:5173
+```
 
+Other scripts: `npm run build` (production build to `dist/`), `npm run preview`, `npm run format`.
+
+## Project structure
+
+```
+.
+├── index.html            # entry HTML: SEO tags, structured data, Netlify form
+├── vite.config.js
+├── netlify.toml          # build + cache/security headers
+├── public/               # served as-is at the site root
+│   ├── assets/           # images and résumé PDF
+│   ├── robots.txt
+│   ├── sitemap.xml
+│   └── favicon.ico
+├── src/
+│   ├── main.jsx          # React entry
+│   ├── App.jsx           # page layout
+│   ├── components/       # Navbar, Intro, About, Skills, Projects, ContactForm, ...
+│   └── styles/global.css
+└── docs/                 # supporting documents and notes
+```
+
+## Deployment
+
+Netlify builds with `npm run build` and publishes `dist/` (see `netlify.toml`). Every push to `main` redeploys.
+
+## Contact
+
+[LinkedIn](https://www.linkedin.com/in/bruce-pius-034821256/) · [GitHub](https://github.com/LeadwithPius)
+
+## License
+
+[MIT](LICENSE)

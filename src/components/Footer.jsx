@@ -1,5 +1,5 @@
 import React from 'react';
-import TimezoneDisplay from './timezone_display.jsx'; 
+import TimezoneDisplay from './TimezoneDisplay'; 
 
 export default function Footer() {
   return (

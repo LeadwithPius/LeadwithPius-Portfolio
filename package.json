@@ -5,9 +5,10 @@
   "description": "A modern responsive React portfolio website for Bruce Pius built with Vite.",
   "author": "Bruce Pius",
   "license": "MIT",
+  "homepage": "https://leadwithpius.netlify.app/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/BrucePius/LeadwithPius-Portfolio.git"
+    "url": "https://github.com/LeadwithPius/LeadwithPius-Portfolio.git"
   },
   "scripts": {
     "dev": "vite",

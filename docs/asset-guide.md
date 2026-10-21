@@ -1,4 +1,4 @@
-# Public assets
+# Public assets (files in `public/assets/`)
 
 Place these files here so they are served at `/assets/`:
 
@@ -15,4 +15,4 @@ Place these files here so they are served at `/assets/`:
 
 **Resume:**
 
-- Bruce-Pius-Resume.pdf – Your resume. The nav “Resume” link points to `/assets/Bruce-Pius-Resume.pdf`. Rename your file to match (no spaces) or update the link in `navbar.jsx`.
+- Bruce-Pius-Resume.pdf – Your resume. The nav “Resume” link points to `/assets/Bruce-Pius-Resume.pdf`. Rename your file to match (no spaces) or update the link in `src/components/Navbar.jsx`.
