@@ -37,23 +37,32 @@ body {
 /* Fixed behind the entire page so every glass panel — navbar, cards, */
 /* form — has real color and light to blur.                           */
 /*                                                                    */
-/* The photo is stretched to cover the viewport (no distortion), and  */
-/* background-position is tuned so the Victoria Falls Bridge — about  */
-/* 44% across and 66% down the photo — is never cropped out and sits  */
-/* below the hero text. The scrim darkens the edges and leaves a      */
-/* clear pool of light around the bridge so it stays the focal point  */
-/* while text elsewhere stays readable.                               */
+/* The source photo is small, so scaling it up to fill the screen     */
+/* shows pixelation. Instead of showing it sharp, the image layer is  */
+/* softly blurred and slightly over-scaled (to hide the blurred       */
+/* edges), then dimmed by a scrim — a soft, atmospheric backdrop      */
+/* behind the glass panels. The photo is positioned so the bridge     */
+/* sits low in the frame, under the content.                          */
 /* ---------------------------------------------------------------- */
 .falls-bg {
   position: fixed;
   inset: 0;
   z-index: -1;
+  overflow: hidden;
   pointer-events: none;
   background-color: var(--bg);
+}
+
+.falls-bg::before {
+  content: '';
+  position: absolute;
+  inset: -3%;
   background-image: url('/assets/victoria-falls.jpg');
   background-size: cover;
-  background-position: 44% 65%;
+  background-position: 46% 38%;
   background-repeat: no-repeat;
+  filter: blur(5px) saturate(1.05);
+  transform: scale(1.04);
 }
 
 .falls-bg::after {
@@ -61,13 +70,7 @@ body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(
-      ellipse 55% 38% at 44% 65%,
-      rgba(10, 10, 18, 0) 0%,
-      rgba(10, 10, 18, 0.25) 60%,
-      rgba(10, 10, 18, 0.62) 100%
-    ),
-    linear-gradient(180deg, rgba(10, 10, 18, 0.55) 0%, rgba(10, 10, 18, 0.2) 45%, rgba(10, 10, 18, 0.35) 100%);
+    linear-gradient(180deg, rgba(12, 20, 28, 0.42) 0%, rgba(12, 20, 28, 0.5) 55%, rgba(12, 20, 28, 0.62) 100%);
 }
 
 /* ---------------------------------------------------------------- */
