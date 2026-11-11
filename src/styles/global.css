@@ -33,59 +33,41 @@ body {
 }
 
 /* ---------------------------------------------------------------- */
-/* Ambient background blobs                                          */
+/* Victoria Falls background                                         */
 /* Fixed behind the entire page so every glass panel — navbar, cards, */
-/* form — has real color and light to blur, not just flat dark bg.    */
+/* form — has real color and light to blur.                           */
+/*                                                                    */
+/* The photo is stretched to cover the viewport (no distortion), and  */
+/* background-position is tuned so the Victoria Falls Bridge — about  */
+/* 44% across and 66% down the photo — is never cropped out and sits  */
+/* below the hero text. The scrim darkens the edges and leaves a      */
+/* clear pool of light around the bridge so it stays the focal point  */
+/* while text elsewhere stays readable.                               */
 /* ---------------------------------------------------------------- */
-.ambient-bg {
+.falls-bg {
   position: fixed;
   inset: 0;
   z-index: -1;
-  overflow: hidden;
   pointer-events: none;
+  background-color: var(--bg);
+  background-image: url('/assets/victoria-falls.jpg');
+  background-size: cover;
+  background-position: 44% 65%;
+  background-repeat: no-repeat;
 }
 
-.ambient-blob {
+.falls-bg::after {
+  content: '';
   position: absolute;
-  border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.55;
-  will-change: transform;
-}
-
-.ambient-blob-1 {
-  width: 42vw;
-  height: 42vw;
-  top: -10vw;
-  left: -8vw;
-  background: radial-gradient(circle, #3a29ff, transparent 70%);
-  animation: drift-1 22s ease-in-out infinite alternate;
-}
-
-.ambient-blob-2 {
-  width: 38vw;
-  height: 38vw;
-  top: 30vh;
-  right: -12vw;
-  background: radial-gradient(circle, #ff3fa4, transparent 70%);
-  animation: drift-2 26s ease-in-out infinite alternate;
-}
-
-.ambient-blob-3 {
-  width: 34vw;
-  height: 34vw;
-  bottom: -12vw;
-  left: 18vw;
-  background: radial-gradient(circle, #22d3ee, transparent 70%);
-  animation: drift-3 30s ease-in-out infinite alternate;
-}
-
-@keyframes drift-1 { to { transform: translate(6vw, 8vh) scale(1.1); } }
-@keyframes drift-2 { to { transform: translate(-5vw, -6vh) scale(0.95); } }
-@keyframes drift-3 { to { transform: translate(4vw, -5vh) scale(1.05); } }
-
-@media (prefers-reduced-motion: reduce) {
-  .ambient-blob { animation: none; }
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 55% 38% at 44% 65%,
+      rgba(10, 10, 18, 0) 0%,
+      rgba(10, 10, 18, 0.25) 60%,
+      rgba(10, 10, 18, 0.62) 100%
+    ),
+    linear-gradient(180deg, rgba(10, 10, 18, 0.55) 0%, rgba(10, 10, 18, 0.2) 45%, rgba(10, 10, 18, 0.35) 100%);
 }
 
 /* ---------------------------------------------------------------- */
@@ -200,16 +182,7 @@ body {
   justify-content:center;
   padding: 3rem 1rem;
   overflow: hidden;
-  background: var(--bg); /* aurora + ambient blobs supply the color */
-}
-
-.aurora-container {
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  pointer-events: none;
-  z-index: 0;
+  background: transparent; /* the fixed falls photo shows through */
 }
 
 .intro-content {

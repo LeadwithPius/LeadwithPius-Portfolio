@@ -12,11 +12,7 @@ export default function App() {
   return (
     <>
 
-      <div className="ambient-bg" aria-hidden="true">
-        <span className="ambient-blob ambient-blob-1" />
-        <span className="ambient-blob ambient-blob-2" />
-        <span className="ambient-blob ambient-blob-3" />
-      </div>
+      <div className="falls-bg" aria-hidden="true" />
       <Navbar />
       <main>
         <Intro />

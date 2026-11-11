@@ -4,10 +4,10 @@ import CarouselSlider from './CarouselSlider';
 
 const PROJECTS = [
   {
-    title: 'Matatu fleet management system',
-    description: 'A system to help track public service vehicles: mileage, income vs targets, and report issues.',
-    img: '/assets/project-2.jpg',
-    link: 'https://trip-tally-system.lovable.app/'
+    title: 'UNILUS CareConnect',
+    description: 'A student wellbeing Progressive Web App for the University of Lusaka. Students book counselling appointments, chat with counsellors, and use an education hub and wellness toolkit; counsellors manage availability and sessions, and admins approve counsellors. Built with React and Vite, a Spring Boot API, JWT role-based access and PostgreSQL.',
+    img: '/assets/project-careconnect.png',
+    link: 'https://careconnect-frontend.piusbruce595.workers.dev/'
   },
   {
     title: 'FarmNet',
