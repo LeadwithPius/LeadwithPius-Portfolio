@@ -8,10 +8,14 @@ Place these files here so they are served at `/assets/`:
 
 **Project images** (used in the Projects section):
 
-- project-2.jpg – Matatu / Trip Tally
+- project-careconnect.png – UNILUS CareConnect (logo card)
 - project-3.jpg – FarmNet (farmers’ digital platform)
 - flf-certificate.png – FLF 1.0 (Financial Literacy Forum certificate of appreciation)
 - project-6.png – Knight Runner (JavaFX game) screenshot
+
+**Background:**
+
+- victoria-falls.jpg – Fixed full-page background (Victoria Falls Bridge). Positioned in `src/styles/global.css` (`.falls-bg`) so the bridge stays the focal point.
 
 **Resume:**
 
